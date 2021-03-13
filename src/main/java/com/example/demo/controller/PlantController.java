@@ -38,11 +38,6 @@ public class PlantController {
         return plantService.findPlantsBelowPrice(price);
     }
 
-    @JsonView(Views.Public.class)
-    public Plant getFilteredPlant(String name){
-        return plantService.getPlantByName(name);
-    }
-
     private PlantDTO convertPlantToPlantDTO(Plant plant){
         PlantDTO plantDTO = new PlantDTO();
         BeanUtils.copyProperties(plant, plantDTO);

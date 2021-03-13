@@ -1,0 +1,25 @@
+POST http://localhost:8080/delivery
+Content-Type: application/json
+
+{
+  "name": "Terry",
+  "address": "1234 Sesame Blvd",
+  "deliveryTime": "2020-03-07T18:07",
+  "plants": [
+    {"name": "Petunia",
+      "price": "3.50"},
+    {"name": "Tulip",
+      "price": "2.50"}
+  ]
+}
+
+###
+
+GET http://localhost:8080/delivery/bill/1
+
+###
+
+GET http://localhost:8080/plant/under-price/1000000
+
+###
+

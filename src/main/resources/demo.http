@@ -18,7 +18,9 @@ Content-Type: application/json
 GET http://localhost:8080/delivery/bill/1
 
 ###
+GET http://localhost:8080/plant/Petunia
 
+###
 GET http://localhost:8080/plant/under-price/1000000
 
 ###

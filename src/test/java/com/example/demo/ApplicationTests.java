@@ -41,4 +41,14 @@ public class ApplicationTests {
 
 
 
+    @Test
+    public void testPriceLessThan() {
+        //test boundary conditions
+        Plant p = testEntityManager.persist(new Plant("Foo Leaf", 4.99));
+        testEntityManager.persist(new Plant("Bar Weed", 5.01));
+
+        List<Plant> cheapPlants = plantRepository.findByPriceLessThan(BigDecimal.valueOf(5));
+        Assertions.assertEquals(1, cheapPlants.size(), "Size");
+        Assertions.assertEquals(p.getId(), cheapPlants.get(0).getId(), "Id");
+    }
 }

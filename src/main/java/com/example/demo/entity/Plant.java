@@ -1,6 +1,6 @@
 package com.example.demo.entity;
 
-import com.example.demo.Views;
+import com.example.demo.view.Views;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.hibernate.annotations.Nationalized;
 

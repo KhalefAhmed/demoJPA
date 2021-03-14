@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.DTO.PlantDTO;
-import com.example.demo.Views;
+import com.example.demo.view.Views;
 import com.example.demo.entity.Plant;
 import com.example.demo.service.PlantService;
 import com.fasterxml.jackson.annotation.JsonView;

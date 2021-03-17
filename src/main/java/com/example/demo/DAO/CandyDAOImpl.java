@@ -23,9 +23,13 @@ public class CandyDAOImpl implements CandyDAO{
 
     private static final String SELECT_ALL_CANDY = "SELECT * FROM candy";
 
-    private static final String INSERT_DELIVERY =
-            "INSERT INTO candy_delivery (candy_id, delivery_id) " +
+    private static final String INSERT_DELIVERY = "INSERT INTO candy_delivery (candy_id, delivery_id) " +
                     "VALUES (:" + CANDY_ID + ", :" + DELIVERY_ID + ")";
+
+    private static final String FIND_CANDY_BY_DELIVERY =
+            "SELECT c.* FROM candy_delivery AS cd " +
+                    "JOIN candy AS c on c.id = cd.candy_id " +
+                    "WHERE cd.delivery_id = :" + DELIVERY_ID;
 
     private static final RowMapper<CandyData> candyDataRowMapper =
             new BeanPropertyRowMapper<>(CandyData.class);
@@ -45,6 +49,8 @@ public class CandyDAOImpl implements CandyDAO{
 
     @Override
     public List<CandyData> findByDelivery(Long deliveryId) {
-        return null;
+        return jdbcTemplate.query(FIND_CANDY_BY_DELIVERY,
+                new MapSqlParameterSource(DELIVERY_ID, deliveryId),
+                candyDataRowMapper);
     }
 }
